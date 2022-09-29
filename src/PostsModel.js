@@ -8,6 +8,11 @@ const PostsModel = (url) => {
     const [serverError, setServerError] = useState(true);
     const [isWaiting, setIsWaiting] = useState()
 
+    const deleteAction = (id) => {
+        const updatedPosts = posts.filter(post => post.id != id)
+         setPost(updatedPosts)
+    }
+
     useEffect(() => {
 
         fetch(url)
@@ -31,7 +36,7 @@ const PostsModel = (url) => {
     )
 
     return {
-        isWaiting, serverError, posts
+        isWaiting, serverError, posts, deleteAction
     }
 }
 
