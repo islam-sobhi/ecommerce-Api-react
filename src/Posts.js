@@ -5,6 +5,7 @@ import PostsModel from './PostsModel'
 const Posts = () => {
 
     
+    
 //  https://theluxefleet.com/wp-json/wc/v3/orders/?consumer_key=ck_c421a56b1c59bee9edaba00cca66313619baa7db&consumer_secret=cs_ebd43aa03bc10fad497709a2430b754f71bab72d
 const {isWaiting, serverError, posts, deleteAction}= PostsModel('https://jsonplaceholder.typicode.com/posts');
 

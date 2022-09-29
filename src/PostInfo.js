@@ -40,4 +40,5 @@ const PostInfo = () => {
     );
 }
 
+
 export default PostInfo;

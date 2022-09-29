@@ -51,5 +51,6 @@ const PostsList = ({ posts, name, deleteAction }) => {
       </table>
     </div>
   );
+  
 };
 export default PostsList;

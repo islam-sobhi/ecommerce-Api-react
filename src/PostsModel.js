@@ -23,6 +23,7 @@ const PostsModel = (url) => {
                 return response.json();
             })
             .then(data => {
+                
                 console.log(data)
                 setPost(data)
                 setIsWaiting(false)
