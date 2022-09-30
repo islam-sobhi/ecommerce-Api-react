@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { useEffect, useState } from 'react';
-import PostsList from './PostsList'
-import PostsModel from './PostsModel'
-const Posts = () => {
+import UsersList from '././UsersList';
+import UsersModel from './UsersModel';
+const Users = () => {
 
     
 //https://jsonplaceholder.typicode.com/posts
 //  https://theluxefleet.com/wp-json/wc/v3/orders/?consumer_key=ck_c421a56b1c59bee9edaba00cca66313619baa7db&consumer_secret=cs_ebd43aa03bc10fad497709a2430b754f71bab72d
-const {isWaiting, serverError, posts, deleteAction}= PostsModel('https://fakestoreapi.com/products');
+const {isWaiting, serverError, users, deleteAction}= UsersModel('https://fakestoreapi.com/users/');
 
+            
     const [posts1, setPost1] = useState(
         [
             {
@@ -62,30 +63,21 @@ const {isWaiting, serverError, posts, deleteAction}= PostsModel('https://fakesto
         ]
     );
 
-   // const [posts, setPost] = useState(null);
-
-
-  
-
     var no = 1;
 
     //const [isWaiting, setIsWaiting] = useState(true);
-
     
     return (
 
         <div className='container'>
             {serverError && <h1>{serverError}</h1>}
             {(isWaiting && <h1>Please wait to load data</h1>)}
-            {posts && < PostsList posts={posts} name="Posts" deleteAction={deleteAction} />}
+            {users && < UsersList users={users} name="Users" deleteAction={deleteAction} />}
 
         </div>
-
-
-
     );
 
 
 
 }
-export default Posts;
+export default Users;

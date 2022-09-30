@@ -4,9 +4,12 @@ import Home from "./Home";
 import About from "./About";
 import Posts from "./Posts";
 import PostInfo from "./PostInfo";
+import Users from "./Users";
+import Create from "./create";
 
 const Navbar = () => {
   return (
+
     <div>
       <BrowserRouter>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,12 +40,12 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link to="/posts" className="nav-link">
-                    Posts
+                    Products
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/about" className="nav-link">
-                    About Us
+                  <Link to="/users" className="nav-link">
+                    Users
                   </Link>
                 </li>
                 <li className="nav-item dropdown">
@@ -53,12 +56,12 @@ const Navbar = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Our Services
+                    Products
                   </a>
                   <ul class="dropdown-menu">
                     <li>
-                      <a className="dropdown-item" href="#">
-                        Service 1
+                      <a className="dropdown-item" href="/create">
+                        Create Product
                       </a>
                     </li>
                     <li>
@@ -99,6 +102,8 @@ const Navbar = () => {
           <Route path="/posts" element={<Posts />}></Route>
           <Route path="/posts/:id" element={<PostInfo />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/users" element={<Users />}></Route>
+          <Route path="/create" element={<Create />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { useEffect, useState } from 'react';
 
 
-const PostsModel = (url) => {
+const UsersModel = (url) => {
 
-    const [posts, setPost] = useState(null);
+    const [users, setUser] = useState(null);
     const [serverError, setServerError] = useState(true);
     const [isWaiting, setIsWaiting] = useState()
 
     const deleteAction = (id) => {
-        const updatedPosts = posts.filter(post => post.id != id)
-         setPost(updatedPosts)
+        const updatedUsers = users.filter(user => user.id != id)
+        setUser(updatedUsers)
     }
 
     
@@ -26,7 +26,7 @@ const PostsModel = (url) => {
             .then(data => {
 
                 console.log(data)
-                setPost(data)
+                setUser(data)
                 setIsWaiting(false)
             }).catch(er => {
                 console.log(er.message)
@@ -38,8 +38,8 @@ const PostsModel = (url) => {
     )
 
     return {
-        isWaiting, serverError, posts, deleteAction
+        isWaiting, serverError, users, deleteAction
     }
 }
 
-export default PostsModel;
+export default UsersModel;

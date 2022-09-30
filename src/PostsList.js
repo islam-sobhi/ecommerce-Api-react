@@ -10,9 +10,11 @@ const PostsList = ({ posts, name, deleteAction }) => {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">No.</th>
-            <th scope="col">title</th>
-            <th scope="col">Body</th>
+            <th scope="col">Image</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">category</th>
+            <th scope="col">#Rating</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -20,11 +22,16 @@ const PostsList = ({ posts, name, deleteAction }) => {
           {posts.map((post) => (
             <tr>
               <th scope="row" key={post.id}>
-                {no++}
+              <img
+                     className="img-thumbnail " 
+                      src={post.image}
+                      width="50"
+                    />
               </th>
-              <td>{post.title}</td>
-              <td>{post.body}</td>
-
+              <td className="align-middle text-justify">{post.title}</td>
+              <td>{post.price}</td>
+              <td>{post.category}</td>
+              <td>{post.rating['count']} </td>
               <td>
                 <button
                   onClick={() => deleteAction(post.id)}
@@ -51,6 +58,6 @@ const PostsList = ({ posts, name, deleteAction }) => {
       </table>
     </div>
   );
-  
+
 };
 export default PostsList;

@@ -1,44 +1,82 @@
 import { useParams } from "react-router-dom";
-import PostsModel from './PostsModel';
+import PostsModel from "./PostsModel";
 import React, { Component } from "react";
 import { post } from "jquery";
 const PostInfo = () => {
-    const {id} = useParams(); 
-    const { isWaiting, serverError, posts } = PostsModel('https://jsonplaceholder.typicode.com/posts/' + id);  
+  const { id } = useParams();
+  const { isWaiting, serverError, posts } = PostsModel(
+    "https://fakestoreapi.com/products/" + id
+  );
+  const imageStyles = { minWidth: 300, minHeight: 300 };
 
-    console.log(posts)
-    return (
+  console.log(posts);
+  return (
+    <div>
+      
 
+      {serverError && <h1>{serverError} </h1>}
+      {isWaiting && <h1>Please wait to load data ...</h1>}
+
+      {posts && (
         <div>
-            <br />
-            <h1> PostInfo - {id}</h1><br/>
+            
+          <div className="container">
+          <br />
+      <nav aria-label="breadcrumb">
+  <ol className="breadcrumb align-middle text-justify">
+    <li className="breadcrumb-item"><a href="/posts">Home</a></li>
+    <li className="breadcrumb-item active" aria-current="page">{posts.title}</li>
+  </ol>
+</nav>
 
-            {serverError && <h1>{serverError} ...</h1>}
-            {isWaiting && <h1>Please wait to load data ...</h1>}
+      <br />
 
-            {posts && (
+            <div className="row">
+              <div className="col-4">
 
-                <div className="card text-center">
-                <div className="card-header">
-                  Featured
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">Post Title: {posts.title}</h5>
-                  <p className="card-text">Post Body: {posts.body}</p>
-                  <a href="#" className="btn btn-primary">UserId: {posts.userId}</a>
-                </div>
-                <div className="card-footer text-muted">
-                  2 days ago
-                </div>
+
+                <img className="img-responsive " width="400" src={posts.image} />
               </div>
+              <div className="col-6">
 
-            )
-                
-           }
+        
+
+                <div className="p-3 right-side">
+                    <div className="d-flex justify-content-between align-items-center">
+                        <h3>{posts.title}</h3> <span className="heart"><i className='bx bx-heart'></i></span>
+                    </div>
+                    <div className="mt-2 pr-3 content">
+                        <p> {posts.description}</p>
+                    </div>
+                    <h3>{posts.price} AED</h3>
+                    <div className="ratings d-flex flex-row align-items-center">
+                        <div className="d-flex flex-row"> <i className='bx bxs-star'></i> <i className='bx bxs-star'></i> <i
+                                className='bx bxs-star'></i> <i className='bx bxs-star'></i> <i className='bx bx-star'></i> </div>
+                                <span className="heading">Review {posts.rating['count']}  </span>
+                               
+                    </div>
+                   
+                    
+                    <div className="buttons d-flex flex-row mt-5 gap-3"> <button className="btn btn-outline-dark">Buy
+                            Now</button> <button className="btn btn-dark">Add to Basket</button> </div>
+                            <div className="mt-2 pr-3 content">
+                        <p>  {posts.category}</p>
+                    </div>
+                           
+                    <div className="search-option"> <i className='bx bx-search-alt-2 first-search'></i>
+                        <div className="inputs">  </div> <i className='bx bx-share-alt share'></i>
+                    </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
         </div>
 
-    );
-}
-
+      )}
+    </div>
+  );
+};
 
 export default PostInfo;

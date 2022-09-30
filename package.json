@@ -9,6 +9,7 @@
     "bootstrap": "^5.2.1",
     "jquery": "^3.6.1",
     "react": "^18.2.0",
+    "react-bootstrap-star-rating": "^3.5.5-alpha.0.3",
     "react-dom": "^18.2.0",
     "react-native-woocommerce-api": "^1.8.8",
     "react-router-dom": "^6.3.0",

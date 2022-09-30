@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import PostsList from './PostsList'
 import PostsModel from './PostsModel'
 
-
+/*
 
 var WooCommerceAPI = require('react-native-woocommerce-api');
  
@@ -32,3 +32,4 @@ WooCommerceAPI.get('products')
 
           export default WooCommerceAPI;
 
+*/
